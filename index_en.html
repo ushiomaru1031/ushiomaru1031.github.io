@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whisper Study Club | Gentle Exam Prep App for Emotionally Sensitive Students</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .gradient-text {
+            background: linear-gradient(45deg, #c4b5fd, #f9a8d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gradient-bg {
+            background: linear-gradient(120deg, #ede9fe, #fce7f3);
+        }
+        .hero-pattern {
+            background-color: #fcfcfd;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c4b5fd' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .cloud {
+            position: absolute;
+            opacity: 0.7;
+        }
+        .cloud-1 {
+            top: 10%;
+            left: 5%;
+            animation: float 10s ease-in-out infinite;
+        }
+        .cloud-2 {
+            top: 15%;
+            right: 5%;
+            animation: float 12s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        .warm-shadow {
+            box-shadow: 0 10px 15px -3px rgba(251, 207, 232, 0.1), 0 4px 6px -2px rgba(251, 207, 232, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans text-gray-600">
+    <!-- Header Section -->
+    <header class="bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <i class="fas fa-heart text-pink-300 text-2xl mr-2"></i>
+                <span class="font-bold text-xl gradient-text">Whisper Study Club</span>
+            </div>
+            <div class="hidden md:flex space-x-3">
+                <a href="#features" class="px-4 py-2 rounded-full bg-gradient-to-r from-purple-300 to-pink-300 text-white hover:from-purple-400 hover:to-pink-400 transition-all transform hover:-translate-y-1 hover:scale-105 shadow-md flex items-center">
+                    <i class="fas fa-magic text-yellow-200 mr-2"></i><span class="font-medium">✨ Sparkly Features ✨</span>
+                </a>
+                <a href="#how-it-works" class="px-4 py-2 rounded-full bg-gradient-to-r from-pink-300 to-purple-300 text-white hover:from-pink-400 hover:to-purple-400 transition-all transform hover:-translate-y-1 hover:scale-105 shadow-md flex items-center">
+                    <i class="fas fa-star text-yellow-200 mr-2"></i><span class="font-medium">💖 Easy Guide 💖</span>
+                </a>
+                <a href="#testimonials" class="px-4 py-2 rounded-full bg-gradient-to-r from-purple-300 to-pink-300 text-white hover:from-purple-400 hover:to-pink-400 transition-all transform hover:-translate-y-1 hover:scale-105 shadow-md flex items-center">
+                    <i class="fas fa-heart text-yellow-200 mr-2"></i><span class="font-medium">💕 Lovely Stories 💕</span>
+                </a>
+                <a href="#register" class="px-4 py-2 rounded-full bg-gradient-to-r from-blue-300 to-purple-300 text-white hover:from-blue-400 hover:to-purple-400 transition-all transform hover:-translate-y-1 hover:scale-105 shadow-md flex items-center">
+                    <i class="fas fa-gift text-yellow-200 mr-2"></i><span class="font-medium">🌈 Join Now 🌈</span>
+                </a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="index.html" class="text-gray-500 hover:text-pink-400 transition text-sm flex items-center">
+                    <i class="fas fa-globe text-pink-300 mr-1"></i>日本語
+                </a>
+                <a href="#register" class="bg-gradient-to-r from-purple-400 to-pink-400 text-white px-6 py-2 rounded-full shadow-md hover:shadow-lg transition duration-300 transform hover:-translate-y-1 hover:scale-105 flex items-center">
+                    <i class="fas fa-sparkles mr-2 text-yellow-200"></i>Get Started
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-pattern py-20 md:py-32 relative overflow-hidden">
+        <div class="cloud cloud-1">
+            <svg width="120" height="80" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M30,10 Q40,0 50,10 T70,10 T90,10 Q100,10 100,20 T110,30 Q120,30 120,40 T110,50 Q100,50 90,60 T70,60 T50,60 Q40,60 30,50 T10,40 T0,30 Q0,20 10,20 T30,10" fill="#ddd6fe" opacity="0.5" />
+            </svg>
+        </div>
+        <div class="cloud cloud-2">
+            <svg width="150" height="90" viewBox="0 0 150 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M30,10 Q45,0 60,10 T90,10 T120,10 Q135,10 135,25 T145,40 Q150,40 150,55 T140,70 Q130,70 120,80 T90,80 T60,80 Q45,80 30,70 T15,55 T0,40 Q0,25 15,25 T30,10" fill="#fbcfe8" opacity="0.5" />
+            </svg>
+        </div>
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-3xl md:text-5xl font-bold mb-6">
+                    <span class="gradient-text">An App That Understands Your Feelings</span><br>
+                    Gentle Exam Preparation
+                </h1>
+                <p class="text-lg md:text-xl mb-8 text-gray-500">
+                    Even on your difficult days, even when you're anxious.<br>
+                    Whisper Study Club will quietly support you, moving forward together at your pace.<br>
+                    "Don't think you can't do it..." "It's okay to take small steps"
+                </p>
+                <div class="flex flex-col md:flex-row justify-center gap-4">
+                    <a href="#register" class="bg-gradient-to-r from-purple-300 to-pink-300 text-white px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-1 text-lg">
+                        Start Gently <i class="fas fa-heart ml-2"></i>
+                    </a>
+                    <a href="#how-it-works" class="border border-purple-200 text-gray-600 px-8 py-3 rounded-full shadow hover:shadow-md hover:bg-purple-50 transition duration-300 text-lg">
+                        Take a Peek at How It Works
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-4 gradient-text">Gentle Features That Care About Your Feelings</h2>
+            <p class="text-center text-gray-500 mb-12">Always on your side. Learning support that you can continue without pushing yourself.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-purple-50 rounded-xl p-6 shadow-sm hover:shadow-md transition warm-shadow">
+                    <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-book text-purple-400"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Create Questions from Textbooks</h3>
+                    <p class="text-gray-500">Just upload photos of your textbook, and it automatically creates exam questions for you. No need to worry about difficult things, so you can feel at ease ♪</p>
+                </div>
+                
+                <div class="bg-pink-50 rounded-xl p-6 shadow-sm hover:shadow-md transition warm-shadow">
+                    <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-heart text-pink-400"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Advice in Gentle Words</h3>
+                    <p class="text-gray-500">Quietly encouraging you when you're struggling, gently supporting you when you're anxious. We'll cheer you on with messages that match how you're feeling.</p>
+                </div>
+                
+                <div class="bg-purple-50 rounded-xl p-6 shadow-sm hover:shadow-md transition warm-shadow">
+                    <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-mobile-alt text-purple-400"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Anytime, Anywhere</h3>
+                    <p class="text-gray-500">Study a little bit whenever you feel like it, whether on your way to school or before sleeping. You don't have to push yourself, and it's okay to go at your own pace.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-16 gradient-bg">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-4">Warm and Simple ♪ How to Use</h2>
+            <p class="text-center text-gray-500 mb-12">Nothing complicated. Let's move forward together at a comfortable pace.</p>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="flex flex-col md:flex-row items-center bg-white rounded-xl shadow-md p-6 mb-8 warm-shadow">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0 mb-4 md:mb-0 md:mr-6">
+                        <span class="text-purple-500 text-xl font-bold">1</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2">Register Your Exams</h3>
+                        <p class="text-gray-500">Tell us your test name and date, like "2nd Year High School, 2nd Semester Final Exam." It's not difficult, so you'll be fine ♡</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col md:flex-row items-center bg-white rounded-xl shadow-md p-6 mb-8 warm-shadow">
+                    <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center flex-shrink-0 mb-4 md:mb-0 md:mr-6">
+                        <span class="text-pink-400 text-xl font-bold">2</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2">Upload Your Textbooks</h3>
+                        <p class="text-gray-500">Just take photos of your textbook with your smartphone and send them. Don't worry if they're not perfect—you can try as many times as you need.</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col md:flex-row items-center bg-white rounded-xl shadow-md p-6 mb-8 warm-shadow">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0 mb-4 md:mb-0 md:mr-6">
+                        <span class="text-purple-500 text-xl font-bold">3</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2">Create Questions</h3>
+                        <p class="text-gray-500">Create questions in any format you like, such as short answer or multiple choice. Don't worry if it doesn't go well—you can redo it as many times as you need, so feel at ease ♪</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col md:flex-row items-center bg-white rounded-xl shadow-md p-6 warm-shadow">
+                    <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center flex-shrink-0 mb-4 md:mb-0 md:mr-6">
+                        <span class="text-pink-400 text-xl font-bold">4</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2">Solve Problems and Grow Little by Little</h3>
+                        <p class="text-gray-500">Try solving the questions you've created. It's completely okay if you make mistakes. The parts you couldn't do will be gently explained, and it's fine to go at your own pace.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-4 gradient-text">Kind Words from Our Users</h2>
+            <p class="text-center text-gray-500 mb-12">Students with feelings like yours are also moving forward little by little</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-purple-50 rounded-xl p-6 shadow-sm hover:shadow-md transition warm-shadow">
+                    <div class="flex items-center mb-4">
+                        <img src="https://placehold.co/60x60/EEE/31343C.png" alt="User Icon" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold">Yuko</h4>
+                            <p class="text-sm text-gray-500">2nd Year High School</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-500">"I used to get so anxious before tests that I couldn't sleep, but this app tells me 'It's okay' and it's so healing... Little by little, I'm becoming less afraid of studying. I'm not perfect yet, but I've come to believe that's okay..."</p>
+                </div>
+                
+                <div class="bg-pink-50 rounded-xl p-6 shadow-sm hover:shadow-md transition warm-shadow">
+                    <div class="flex items-center mb-4">
+                        <img src="https://placehold.co/60x60/EEE/31343C.png" alt="User Icon" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold">Takuya</h4>
+                            <p class="text-sm text-gray-500">1st Year High School</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-500">"Studying was so painful that I was always crying, but this app tells me 'You don't have to push yourself'... It taught me that even 5 minutes a day is okay, and I think I'm able to continue studying a bit more than before... I'm not perfect yet, but it tells me that's fine."</p>
+                </div>
+                
+                <div class="bg-purple-50 rounded-xl p-6 shadow-sm hover:shadow-md transition warm-shadow">
+                    <div class="flex items-center mb-4">
+                        <img src="https://placehold.co/60x60/EEE/31343C.png" alt="User Icon" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold">Misaki</h4>
+                            <p class="text-sm text-gray-500">3rd Year High School</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-500">"I nearly gave up so many times during my entrance exam studies, thinking I couldn't do it anymore, when I found this app... I can't count how many times the words 'One step at a time is fine' saved me... My grades still aren't ideal, but they're gradually improving, and I feel like I can try a little harder."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Encouragement Section -->
+    <section class="py-12 gradient-bg">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center">
+                <h3 class="text-xl md:text-2xl font-semibold mb-3 text-purple-600">
+                    <i class="fas fa-star text-pink-400 mr-2"></i>A Gentle Message For You<i class="fas fa-star text-pink-400 ml-2"></i>
+                </h3>
+                <p class="text-lg text-gray-600 italic">
+                    "Even if you couldn't study today, we can try again together tomorrow.<br>
+                    Your pace is just fine. Small steps are enough.<br>
+                    You don't need to compare yourself to others or blame yourself for what you can't do.<br>
+                    You are wonderful just as you are, and that's perfectly okay ♡"
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Section -->
+    <section id="register" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto bg-gradient-bg rounded-xl shadow-lg p-8 warm-shadow">
+                <h2 class="text-2xl md:text-3xl font-bold text-center mb-6 gradient-text">Let's Start Gently</h2>
+                <p class="text-center text-gray-500 mb-8">
+                    Would you like to start a gentle study time by registering for free?<br>
+                    You're not alone. We'll always be by your side ❤
+                </p>
+                
+                <form class="space-y-4">
+                    <div>
+                        <label for="username" class="block text-sm font-medium text-gray-600">Nickname</label>
+                        <input type="text" id="username" class="mt-1 block w-full rounded-md border-gray-200 shadow-sm focus:border-purple-400 focus:ring focus:ring-purple-200 p-2 border">
+                    </div>
+                    
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-600">Email Address</label>
+                        <input type="email" id="email" class="mt-1 block w-full rounded-md border-gray-200 shadow-sm focus:border-purple-400 focus:ring focus:ring-purple-200 p-2 border">
+                    </div>
+                    
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-gray-600">Password</label>
+                        <input type="password" id="password" class="mt-1 block w-full rounded-md border-gray-200 shadow-sm focus:border-purple-400 focus:ring focus:ring-purple-200 p-2 border">
+                    </div>
+                    
+                    <div class="pt-4">
+                        <button type="button" class="w-full bg-gradient-to-r from-purple-400 to-pink-400 text-white py-3 rounded-full shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-1 hover:scale-105 text-lg flex items-center justify-center">
+                            <i class="fas fa-magic text-yellow-200 mr-2"></i>Begin Your Journey<i class="fas fa-heart text-yellow-200 ml-2"></i>
+                        </button>
+                    </div>
+                </form>
+                
+                <p class="text-center text-xs text-gray-500 mt-6">
+                    By registering, you agree to our <a href="terms_en.html" class="text-purple-400 hover:underline">Terms of Service</a> and <a href="#" class="text-purple-400 hover:underline">Privacy Policy</a>.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-700 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-heart text-pink-300 text-2xl mr-2"></i>
+                        <span class="font-bold text-xl text-white">Whisper Study Club</span>
+                    </div>
+                    <p class="text-gray-300">A gentle exam prep app that cares about your feelings</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#features" class="text-gray-300 hover:text-pink-200 transition">Features</a></li>
+                        <li><a href="#how-it-works" class="text-gray-300 hover:text-pink-200 transition">How It Works</a></li>
+                        <li><a href="#testimonials" class="text-gray-300 hover:text-pink-200 transition">Testimonials</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Support</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-pink-200 transition">FAQ</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-pink-200 transition">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-pink-200 transition">Help Center</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-pink-200 transition"><i class="fab fa-twitter text-xl"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-pink-200 transition"><i class="fab fa-instagram text-xl"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-pink-200 transition"><i class="fab fa-line text-xl"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-600 mt-8 pt-8 text-center text-gray-300 text-sm">
+                <p>&copy; 2023 Whisper Study Club All rights reserved.</p>
+                <p class="mt-2 text-xs">We'll always be here to support you ♡</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple smooth scrolling function
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

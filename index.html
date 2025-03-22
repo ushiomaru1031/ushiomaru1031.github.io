@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ヒソヒソ勉強会｜メンヘラさんのためのやさしい試験対策アプリ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .gradient-text {
+            background: linear-gradient(45deg, #c4b5fd, #f9a8d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gradient-bg {
+            background: linear-gradient(120deg, #ede9fe, #fce7f3);
+        }
+        .hero-pattern {
+            background-color: #fcfcfd;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c4b5fd' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .cloud {
+            position: absolute;
+            opacity: 0.7;
+        }
+        .cloud-1 {
+            top: 10%;
+            left: 5%;
+            animation: float 10s ease-in-out infinite;
+        }
+        .cloud-2 {
+            top: 15%;
+            right: 5%;
+            animation: float 12s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        .warm-shadow {
+            box-shadow: 0 10px 15px -3px rgba(251, 207, 232, 0.1), 0 4px 6px -2px rgba(251, 207, 232, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans text-gray-600">
+    <!-- ヘッダーセクション -->
+    <header class="bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <i class="fas fa-heart text-pink-300 text-2xl mr-2"></i>
+                <span class="font-bold text-xl gradient-text">ヒソヒソ勉強会</span>
+            </div>
+            <div class="hidden md:flex space-x-3">
+                <a href="#features" class="px-4 py-2 rounded-full bg-gradient-to-r from-purple-300 to-pink-300 text-white hover:from-purple-400 hover:to-pink-400 transition-all transform hover:-translate-y-1 hover:scale-105 shadow-md flex items-center">
+                    <i class="fas fa-magic text-yellow-200 mr-2"></i><span class="font-medium">✨ キラキラ機能 ✨</span>
+                </a>
+                <a href="#how-it-works" class="px-4 py-2 rounded-full bg-gradient-to-r from-pink-300 to-purple-300 text-white hover:from-pink-400 hover:to-purple-400 transition-all transform hover:-translate-y-1 hover:scale-105 shadow-md flex items-center">
+                    <i class="fas fa-star text-yellow-200 mr-2"></i><span class="font-medium">💖 使い方ガイド 💖</span>
+                </a>
+                <a href="#testimonials" class="px-4 py-2 rounded-full bg-gradient-to-r from-purple-300 to-pink-300 text-white hover:from-purple-400 hover:to-pink-400 transition-all transform hover:-translate-y-1 hover:scale-105 shadow-md flex items-center">
+                    <i class="fas fa-heart text-yellow-200 mr-2"></i><span class="font-medium">💕 みんなの声 💕</span>
+                </a>
+                <a href="#register" class="px-4 py-2 rounded-full bg-gradient-to-r from-blue-300 to-purple-300 text-white hover:from-blue-400 hover:to-purple-400 transition-all transform hover:-translate-y-1 hover:scale-105 shadow-md flex items-center">
+                    <i class="fas fa-gift text-yellow-200 mr-2"></i><span class="font-medium">🌈 いますぐ登録 🌈</span>
+                </a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="index_en.html" class="text-gray-500 hover:text-pink-400 transition text-sm flex items-center">
+                    <i class="fas fa-globe text-pink-300 mr-1"></i>English
+                </a>
+                <a href="#register" class="bg-gradient-to-r from-purple-400 to-pink-400 text-white px-6 py-2 rounded-full shadow-md hover:shadow-lg transition duration-300 transform hover:-translate-y-1 hover:scale-105 flex items-center">
+                    <i class="fas fa-sparkles mr-2 text-yellow-200"></i>はじめてみる
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ヒーローセクション -->
+    <section class="hero-pattern py-20 md:py-32 relative overflow-hidden">
+        <div class="cloud cloud-1">
+            <svg width="120" height="80" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M30,10 Q40,0 50,10 T70,10 T90,10 Q100,10 100,20 T110,30 Q120,30 120,40 T110,50 Q100,50 90,60 T70,60 T50,60 Q40,60 30,50 T10,40 T0,30 Q0,20 10,20 T30,10" fill="#ddd6fe" opacity="0.5" />
+            </svg>
+        </div>
+        <div class="cloud cloud-2">
+            <svg width="150" height="90" viewBox="0 0 150 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M30,10 Q45,0 60,10 T90,10 T120,10 Q135,10 135,25 T145,40 Q150,40 150,55 T140,70 Q130,70 120,80 T90,80 T60,80 Q45,80 30,70 T15,55 T0,40 Q0,25 15,25 T30,10" fill="#fbcfe8" opacity="0.5" />
+            </svg>
+        </div>
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-3xl md:text-5xl font-bold mb-6">
+                    <span class="gradient-text">あなたの気持ちに寄り添う</span><br>
+                    やさしい試験対策アプリ
+                </h1>
+                <p class="text-lg md:text-xl mb-8 text-gray-500">
+                    つらい気持ちの日も、不安な日も。<br>
+                    ヒソヒソ勉強会がそっと寄り添い、ゆっくり一緒に進みます。<br>
+                    「できないなんて思わないで…」「少しずつでいいんだよ」
+                </p>
+                <div class="flex flex-col md:flex-row justify-center gap-4">
+                    <a href="#register" class="bg-gradient-to-r from-purple-300 to-pink-300 text-white px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-1 text-lg">
+                        ゆっくり始める <i class="fas fa-heart ml-2"></i>
+                    </a>
+                    <a href="#how-it-works" class="border border-purple-200 text-gray-600 px-8 py-3 rounded-full shadow hover:shadow-md hover:bg-purple-50 transition duration-300 text-lg">
+                        使い方をのぞいてみる
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 特徴セクション -->
+    <section id="features" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-4 gradient-text">あなたの心に寄り添う、やさしい機能</h2>
+            <p class="text-center text-gray-500 mb-12">いつでもあなたの味方。無理なく続けられる学習サポート</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-purple-50 rounded-xl p-6 shadow-sm hover:shadow-md transition warm-shadow">
+                    <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-book text-purple-400"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">教科書からの問題作成</h3>
+                    <p class="text-gray-500">教科書の写真をアップするだけで、自動的に試験問題を作ってくれるよ。難しいことは考えなくていいから安心してね♪</p>
+                </div>
+                
+                <div class="bg-pink-50 rounded-xl p-6 shadow-sm hover:shadow-md transition warm-shadow">
+                    <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-heart text-pink-400"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">やさしい言葉でアドバイス</h3>
+                    <p class="text-gray-500">つらい時はそっと励まし、不安な時はやさしく寄り添う。あなたの気持ちに合わせたメッセージで応援するね。</p>
+                </div>
+                
+                <div class="bg-purple-50 rounded-xl p-6 shadow-sm hover:shadow-md transition warm-shadow">
+                    <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-mobile-alt text-purple-400"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">いつでもどこでも</h3>
+                    <p class="text-gray-500">通学中や寝る前など、気が向いた時にちょっとずつ勉強できるよ。無理しなくていいし、自分のペースで大丈夫だよ。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 使い方セクション -->
+    <section id="how-it-works" class="py-16 gradient-bg">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-4">ほっこり簡単♪使い方</h2>
+            <p class="text-center text-gray-500 mb-12">難しいことはないよ。ゆっくり一緒に進めていこう</p>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="flex flex-col md:flex-row items-center bg-white rounded-xl shadow-md p-6 mb-8 warm-shadow">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0 mb-4 md:mb-0 md:mr-6">
+                        <span class="text-purple-500 text-xl font-bold">1</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2">試験を登録してみよう</h3>
+                        <p class="text-gray-500">「高校2年2学期期末試験」など、テストの名前と日付を教えてね。難しくないから大丈夫だよ♡</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col md:flex-row items-center bg-white rounded-xl shadow-md p-6 mb-8 warm-shadow">
+                    <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center flex-shrink-0 mb-4 md:mb-0 md:mr-6">
+                        <span class="text-pink-400 text-xl font-bold">2</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2">教科書をアップロードしよう</h3>
+                        <p class="text-gray-500">スマホで教科書を撮影して送ってくれるだけでいいよ。上手く撮れなくても大丈夫、何度でも挑戦していいからね。</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col md:flex-row items-center bg-white rounded-xl shadow-md p-6 mb-8 warm-shadow">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0 mb-4 md:mb-0 md:mr-6">
+                        <span class="text-purple-500 text-xl font-bold">3</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2">問題を作ってみよう</h3>
+                        <p class="text-gray-500">記述式や選択式など、好きな形式で問題を作れるよ。うまくいかなくても何度でもやり直せるから、安心してね♪</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col md:flex-row items-center bg-white rounded-xl shadow-md p-6 warm-shadow">
+                    <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center flex-shrink-0 mb-4 md:mb-0 md:mr-6">
+                        <span class="text-pink-400 text-xl font-bold">4</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2">問題を解いて少しずつ成長しよう</h3>
+                        <p class="text-gray-500">作った問題を解いてみよう。間違えても全然大丈夫。できなかった部分はやさしく教えてくれるし、自分のペースでいいんだよ。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ユーザーの声 -->
+    <section id="testimonials" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-4 gradient-text">みんなの優しい声</h2>
+            <p class="text-center text-gray-500 mb-12">あなたと同じ気持ちの子たちも、少しずつ前に進んでいるよ</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-purple-50 rounded-xl p-6 shadow-sm hover:shadow-md transition warm-shadow">
+                    <div class="flex items-center mb-4">
+                        <img src="https://placehold.co/60x60/EEE/31343C.png" alt="ユーザーアイコン" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold">ゆうこ</h4>
+                            <p class="text-sm text-gray-500">高校2年生</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-500">「テスト前になると不安で眠れなかったけど、このアプリが『大丈夫だよ』って言ってくれて癒される…。少しずつだけど、勉強が怖くなくなってきた気がする。まだ完璧じゃないけど、それでいいって思えるようになったよ…」</p>
+                </div>
+                
+                <div class="bg-pink-50 rounded-xl p-6 shadow-sm hover:shadow-md transition warm-shadow">
+                    <div class="flex items-center mb-4">
+                        <img src="https://placehold.co/60x60/EEE/31343C.png" alt="ユーザーアイコン" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold">たくや</h4>
+                            <p class="text-sm text-gray-500">高校1年生</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-500">「勉強するのが本当に辛くて泣いてばかりだったけど、このアプリは『無理しなくていいよ』って言ってくれる…。1日5分からでもいいって教えてもらえて、少しだけど前より勉強が続くようになったかも…。まだ完璧じゃないけど、それでいいって言ってくれる」</p>
+                </div>
+                
+                <div class="bg-purple-50 rounded-xl p-6 shadow-sm hover:shadow-md transition warm-shadow">
+                    <div class="flex items-center mb-4">
+                        <img src="https://placehold.co/60x60/EEE/31343C.png" alt="ユーザーアイコン" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold">みさき</h4>
+                            <p class="text-sm text-gray-500">高校3年生</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-500">「受験勉強で何度も心が折れそうになって、もうダメかもって思った時に出会ったアプリ…。『一歩ずつでいいよ』っていう言葉に何度救われたか分からない…。成績はまだ理想には届かないけど、少しずつ上がってて、もう少し頑張ってみようって思える」</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 励ましセクション (新規追加) -->
+    <section class="py-12 gradient-bg">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center">
+                <h3 class="text-xl md:text-2xl font-semibold mb-3 text-purple-600">
+                    <i class="fas fa-star text-pink-400 mr-2"></i>あなたへのやさしいメッセージ<i class="fas fa-star text-pink-400 ml-2"></i>
+                </h3>
+                <p class="text-lg text-gray-600 italic">
+                    「今日はちょっと勉強できなくても、明日また一緒に頑張ろうね。<br>
+                    あなたのペースで大丈夫。少しずつでいいんだよ。<br>
+                    誰かと比べる必要はないし、できないことを責める必要もないよ。<br>
+                    あなたはあなたのままで素敵だから、そのままでいいんだよ♡」
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 登録セクション -->
+    <section id="register" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div id="formContainer" class="max-w-3xl mx-auto bg-gradient-bg rounded-xl shadow-lg p-8 warm-shadow">
+                <h2 class="text-2xl md:text-3xl font-bold text-center mb-6 gradient-text">ゆっくり始めてみよう</h2>
+                <p class="text-center text-gray-500 mb-8">
+                    無料で登録して、やさしい勉強の時間を始めませんか？<br>
+                    あなたは一人じゃないよ。いつでも寄り添うね ❤
+                </p>
+                
+                <form id="contactForm" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSewiCb8d2NtCVr2hXUtOTZfH02lxDAkmaxrsl153D1RAiStWw/formResponse" method="POST" class="space-y-4">
+                    <div>
+                        <label for="entry_1893840852" class="block text-sm font-medium text-gray-600">お名前 <span class="text-pink-500">*</span></label>
+                        <input type="text" id="entry_1893840852" name="entry.1893840852" required class="mt-1 block w-full rounded-md border-gray-200 shadow-sm focus:border-purple-400 focus:ring focus:ring-purple-200 p-2 border">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-600">メンヘラ度合い <span class="text-pink-500">*</span></label>
+                        <div class="mt-2 flex flex-wrap gap-2">
+                            <div class="text-xs text-gray-500">ひどい</div>
+                            <div class="flex flex-1 justify-between">
+                                <label class="relative cursor-pointer">
+                                    <input type="radio" name="entry.1473167299" value="1" required class="sr-only peer">
+                                    <div class="w-8 h-8 rounded-full bg-white border border-gray-200 peer-checked:bg-purple-300 peer-checked:border-purple-500 flex items-center justify-center transition">1</div>
+                                </label>
+                                <label class="relative cursor-pointer">
+                                    <input type="radio" name="entry.1473167299" value="2" required class="sr-only peer">
+                                    <div class="w-8 h-8 rounded-full bg-white border border-gray-200 peer-checked:bg-purple-300 peer-checked:border-purple-500 flex items-center justify-center transition">2</div>
+                                </label>
+                                <label class="relative cursor-pointer">
+                                    <input type="radio" name="entry.1473167299" value="3" required class="sr-only peer">
+                                    <div class="w-8 h-8 rounded-full bg-white border border-gray-200 peer-checked:bg-purple-300 peer-checked:border-purple-500 flex items-center justify-center transition">3</div>
+                                </label>
+                                <label class="relative cursor-pointer">
+                                    <input type="radio" name="entry.1473167299" value="4" required class="sr-only peer">
+                                    <div class="w-8 h-8 rounded-full bg-white border border-gray-200 peer-checked:bg-purple-300 peer-checked:border-purple-500 flex items-center justify-center transition">4</div>
+                                </label>
+                                <label class="relative cursor-pointer">
+                                    <input type="radio" name="entry.1473167299" value="5" required class="sr-only peer">
+                                    <div class="w-8 h-8 rounded-full bg-white border border-gray-200 peer-checked:bg-purple-300 peer-checked:border-purple-500 flex items-center justify-center transition">5</div>
+                                </label>
+                                <label class="relative cursor-pointer">
+                                    <input type="radio" name="entry.1473167299" value="6" required class="sr-only peer">
+                                    <div class="w-8 h-8 rounded-full bg-white border border-gray-200 peer-checked:bg-purple-300 peer-checked:border-purple-500 flex items-center justify-center transition">6</div>
+                                </label>
+                                <label class="relative cursor-pointer">
+                                    <input type="radio" name="entry.1473167299" value="7" required class="sr-only peer">
+                                    <div class="w-8 h-8 rounded-full bg-white border border-gray-200 peer-checked:bg-purple-300 peer-checked:border-purple-500 flex items-center justify-center transition">7</div>
+                                </label>
+                                <label class="relative cursor-pointer">
+                                    <input type="radio" name="entry.1473167299" value="8" required class="sr-only peer">
+                                    <div class="w-8 h-8 rounded-full bg-white border border-gray-200 peer-checked:bg-purple-300 peer-checked:border-purple-500 flex items-center justify-center transition">8</div>
+                                </label>
+                                <label class="relative cursor-pointer">
+                                    <input type="radio" name="entry.1473167299" value="9" required class="sr-only peer">
+                                    <div class="w-8 h-8 rounded-full bg-white border border-gray-200 peer-checked:bg-purple-300 peer-checked:border-purple-500 flex items-center justify-center transition">9</div>
+                                </label>
+                                <label class="relative cursor-pointer">
+                                    <input type="radio" name="entry.1473167299" value="10" required class="sr-only peer">
+                                    <div class="w-8 h-8 rounded-full bg-white border border-gray-200 peer-checked:bg-purple-300 peer-checked:border-purple-500 flex items-center justify-center transition">10</div>
+                                </label>
+                            </div>
+                            <div class="text-xs text-gray-500">つらい</div>
+                        </div>
+                    </div>
+
+                    <!-- 必要な隠しフィールド -->
+                    <input type="hidden" name="fvv" value="1">
+                    <input type="hidden" name="partialResponse" value="[null,null,&quot;2146888871738675436&quot;]">
+                    <input type="hidden" name="pageHistory" value="0">
+                    <input type="hidden" name="fbzx" value="2146888871738675436">
+                    
+                    <div class="pt-4">
+                        <button type="submit" class="w-full bg-gradient-to-r from-purple-300 to-pink-300 text-white py-3 rounded-full shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-1 text-lg">
+                            そっと始める <i class="fas fa-heart ml-2"></i>
+                        </button>
+                    </div>
+                </form>
+                
+                <!-- ローディングスピナー -->
+                <div id="loadingSpinner" class="hidden text-center py-8 max-w-3xl mx-auto bg-gradient-bg rounded-xl shadow-lg p-8 warm-shadow">
+                    <div class="relative">
+                        <div class="inline-block h-16 w-16 mb-4 relative">
+                            <div class="absolute inset-0 animate-ping opacity-75 rounded-full bg-pink-300" style="animation-duration: 2s;"></div>
+                            <div class="relative flex items-center justify-center w-full h-full">
+                                <div class="text-3xl animate-bounce" style="animation-duration: 1.5s;">💗</div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 animate-pulse" style="animation-duration: 2s;">送信中です・・・<br>あなたの気持ちに寄り添う準備をしています</p>
+                </div>
+                
+                <div id="successMessage" class="hidden text-center py-8 max-w-3xl mx-auto bg-gradient-bg rounded-xl shadow-lg p-8 warm-shadow">
+                    <div class="text-5xl mb-4">🌸</div>
+                    <h3 class="text-xl font-semibold text-purple-600 mb-2">ありがとうございます</h3>
+                    <p class="text-gray-600 mb-6">お問い合わせを受け付けました。あなたの気持ちに寄り添いながら、やさしくサポートさせていただきます。</p>
+                    <button onclick="resetForm()" class="px-6 py-2 bg-gradient-to-r from-purple-300 to-pink-300 text-white rounded-full hover:shadow-lg transition">
+                        戻る
+                    </button>
+                </div>
+                
+                <script>
+                    let submitted = false;
+                    
+                    // テスト用関数 - デバッグ目的
+                    function testFormSubmission() {
+                        console.log('テスト送信を開始します');
+                        const formContainer = document.getElementById('formContainer');
+                        const loadingSpinner = document.getElementById('loadingSpinner');
+                        const successMessage = document.getElementById('successMessage');
+                        
+                        console.log('formContainer:', formContainer);
+                        console.log('formContainer parent:', formContainer ? formContainer.parentElement : null);
+                        console.log('loadingSpinner:', loadingSpinner);
+                        console.log('successMessage:', successMessage);
+                        
+                        // フォーム要素の表示状態を確認
+                        if (formContainer) {
+                            console.log('formContainer display:', window.getComputedStyle(formContainer).display);
+                            console.log('formContainer visibility:', window.getComputedStyle(formContainer).visibility);
+                            console.log('formContainer classList:', formContainer.classList);
+                            
+                            // 親要素の表示状態も確認
+                            const parentContainer = formContainer.parentElement;
+                            if (parentContainer) {
+                                console.log('parentContainer display:', window.getComputedStyle(parentContainer).display);
+                                console.log('parentContainer visibility:', window.getComputedStyle(parentContainer).visibility);
+                            }
+                        }
+                        
+                        if (formContainer && loadingSpinner && successMessage) {
+                            console.log('要素を切り替えます');
+                            
+                            // フォームコンテナを非表示
+                            formContainer.classList.add('hidden');
+                            const parentContainer = formContainer.parentElement;
+                            if (parentContainer) {
+                                parentContainer.style.display = 'none';
+                                console.log('親要素を非表示にしました');
+                            }
+                            
+                            // ローディングスピナー表示
+                            loadingSpinner.classList.remove('hidden');
+                            
+                            // タイマーで切り替え
+                            setTimeout(() => {
+                                loadingSpinner.classList.add('hidden');
+                                successMessage.classList.remove('hidden');
+                                
+                                // サクセスメッセージを親要素と同じ位置に表示
+                                if (parentContainer && parentContainer.parentElement) {
+                                    parentContainer.parentElement.appendChild(successMessage);
+                                    console.log('サクセスメッセージを親要素に移動しました');
+                                }
+                                
+                                console.log('テスト送信完了');
+                            }, 2000);
+                        } else {
+                            console.error('要素が見つかりません');
+                        }
+                    }
+                    
+                    document.addEventListener('DOMContentLoaded', function() {
+                        console.log('DOM読み込み完了');
+                        const form = document.getElementById('contactForm');
+                        const formContainer = document.getElementById('formContainer');
+                        const loadingSpinner = document.getElementById('loadingSpinner');
+                        const successMessage = document.getElementById('successMessage');
+                        
+                        // テスト用：コメント解除でテスト実行
+                        // setTimeout(() => {
+                        //     console.log('テスト関数を実行します');
+                        //     testFormSubmission();
+                        // }, 1000);
+                        
+                        console.log('フォーム要素:', form);
+                        console.log('formContainer要素:', formContainer);
+                        console.log('loadingSpinner要素:', loadingSpinner);
+                        console.log('successMessage要素:', successMessage);
+                        
+                        form.addEventListener('submit', function(e) {
+                            e.preventDefault();
+                            
+                            // 入力検証
+                            const nameField = document.getElementById('entry_1893840852');
+                            const mentalSliders = document.querySelectorAll('input[name="entry.1473167299"]');
+                            
+                            let isValid = true;
+                            let mentalSelected = false;
+                            
+                            if (!nameField.value.trim()) {
+                                isValid = false;
+                            }
+                            
+                            mentalSliders.forEach(slider => {
+                                if (slider.checked) {
+                                    mentalSelected = true;
+                                }
+                            });
+                            
+                            if (!mentalSelected) {
+                                isValid = false;
+                            }
+                            
+                            if (!isValid) {
+                                return;
+                            }
+                            
+                            // ローディングスピナー表示
+                            if (formContainer) {
+                                formContainer.classList.add('hidden');
+                                // 親コンテナにスタイルを適用
+                                const parentContainer = formContainer.parentElement;
+                                if (parentContainer) {
+                                    parentContainer.style.display = 'none';
+                                }
+                            }
+                            loadingSpinner.classList.remove('hidden');
+                            
+                            // FormDataオブジェクト作成
+                            const formData = new FormData(form);
+                            
+                            // URLSearchParamsに変換
+                            const urlParams = new URLSearchParams();
+                            for (const pair of formData.entries()) {
+                                urlParams.append(pair[0], pair[1]);
+                            }
+                            
+                            // Google Formsに送信
+                            fetch(form.action, {
+                                method: 'POST',
+                                mode: 'no-cors', // Google Formsへの送信にはno-corsが必要
+                                headers: {
+                                    'Content-Type': 'application/x-www-form-urlencoded'
+                                },
+                                body: urlParams.toString()
+                            })
+                            .then(() => {
+                                // no-corsモードでは常にこのブロックが実行される
+                                console.log('送信処理が完了しました');
+                                return new Promise(resolve => {
+                                    // 1秒後に切り替え（UX向上のため）
+                                    setTimeout(resolve, 1000);
+                                });
+                            })
+                            .then(() => {
+                                // 送信成功時の処理
+                                setTimeout(() => {
+                                    if (loadingSpinner) {
+                                        loadingSpinner.classList.add('hidden');
+                                    }
+                                    
+                                    if (successMessage) {
+                                        successMessage.classList.remove('hidden');
+                                        // サクセスメッセージを親要素と同じ位置に表示
+                                        const formParent = formContainer ? formContainer.parentElement : null;
+                                        if (formParent && formParent.parentElement) {
+                                            formParent.parentElement.appendChild(successMessage);
+                                        }
+                                    }
+                                }, 1000); // 1秒後に表示切替（UX向上のため）
+                            })
+                            .catch(error => {
+                                // エラー時も成功と同じ処理をする（no-corsモードの制限のため）
+                                setTimeout(() => {
+                                    if (loadingSpinner) {
+                                        loadingSpinner.classList.add('hidden');
+                                    }
+                                    
+                                    if (successMessage) {
+                                        successMessage.classList.remove('hidden');
+                                        // サクセスメッセージを親要素と同じ位置に表示
+                                        const formParent = formContainer ? formContainer.parentElement : null;
+                                        if (formParent && formParent.parentElement) {
+                                            formParent.parentElement.appendChild(successMessage);
+                                        }
+                                    }
+                                }, 1000);
+                                console.error('送信エラー:', error);
+                            });
+                        });
+                    });
+                    
+                    function resetForm() {
+                        // サクセスメッセージを非表示
+                        const successMessage = document.getElementById('successMessage');
+                        if (successMessage) {
+                            successMessage.classList.add('hidden');
+                        }
+                        
+                        // フォームコンテナを表示
+                        const formContainer = document.getElementById('formContainer');
+                        if (formContainer) {
+                            formContainer.classList.remove('hidden');
+                            // 親要素も表示
+                            const parentContainer = formContainer.parentElement;
+                            if (parentContainer) {
+                                parentContainer.style.display = '';
+                            }
+                        }
+                        
+                        // フォームをリセット
+                        const contactForm = document.getElementById('contactForm');
+                        if (contactForm) {
+                            contactForm.reset();
+                        }
+                    }
+                </script>
+                
+                <p class="text-center text-xs text-gray-500 mt-6">
+                    登録することで、<a href="terms.html" class="text-purple-400 hover:underline">利用規約</a>と<a href="#" class="text-purple-400 hover:underline">プライバシーポリシー</a>に同意したことになります。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="bg-gray-700 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-heart text-pink-300 text-2xl mr-2"></i>
+                        <span class="font-bold text-xl text-white">ヒソヒソ勉強会</span>
+                    </div>
+                    <p class="text-gray-300">あなたの心に寄り添う、やさしい試験対策アプリ</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">リンク</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#features" class="text-gray-300 hover:text-pink-200 transition">機能紹介</a></li>
+                        <li><a href="#how-it-works" class="text-gray-300 hover:text-pink-200 transition">使い方</a></li>
+                        <li><a href="#testimonials" class="text-gray-300 hover:text-pink-200 transition">みんなの声</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">サポート</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-pink-200 transition">よくある質問</a></li>
+                        <li><a href="#register" class="text-gray-300 hover:text-pink-200 transition">お問い合わせ</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-pink-200 transition">ヘルプセンター</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">フォロー</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-pink-200 transition"><i class="fab fa-twitter text-xl"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-pink-200 transition"><i class="fab fa-instagram text-xl"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-pink-200 transition"><i class="fab fa-line text-xl"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-600 mt-8 pt-8 text-center text-gray-300 text-sm">
+                <p>&copy; 2023 ヒソヒソ勉強会 All rights reserved.</p>
+                <p class="mt-2 text-xs">あなたの心に寄り添い続けます♡</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // シンプルなスムーススクロール機能
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
