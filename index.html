@@ -335,19 +335,23 @@
                 </form>
                 
                 <!-- ローディングスピナー -->
-                <div id="loadingSpinner" class="hidden text-center py-8 max-w-3xl mx-auto bg-gradient-bg rounded-xl shadow-lg p-8 warm-shadow">
+                <div id="loadingSpinner" class="hidden text-center py-8 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-3xl mx-auto bg-gradient-bg rounded-xl shadow-lg p-8 warm-shadow z-50" style="min-width: 300px; border: 3px solid #fbcfe8;">
                     <div class="relative">
-                        <div class="inline-block h-16 w-16 mb-4 relative">
-                            <div class="absolute inset-0 animate-ping opacity-75 rounded-full bg-pink-300" style="animation-duration: 2s;"></div>
+                        <div class="inline-block h-20 w-20 mb-6 relative">
+                            <div class="absolute inset-0 animate-ping opacity-75 rounded-full bg-pink-300" style="animation-duration: 1.5s;"></div>
+                            <div class="absolute inset-0 animate-pulse opacity-50 rounded-full bg-purple-300" style="animation-duration: 2s;"></div>
                             <div class="relative flex items-center justify-center w-full h-full">
-                                <div class="text-3xl animate-bounce" style="animation-duration: 1.5s;">💗</div>
+                                <div class="text-4xl animate-bounce" style="animation-duration: 1.2s;">💗</div>
                             </div>
                         </div>
                     </div>
-                    <p class="text-gray-600 animate-pulse" style="animation-duration: 2s;">送信中です・・・<br>あなたの気持ちに寄り添う準備をしています</p>
+                    <p class="text-gray-600 text-lg animate-pulse font-medium" style="animation-duration: 2s;">送信中です・・・<br>あなたの気持ちに寄り添う準備をしています</p>
                 </div>
                 
-                <div id="successMessage" class="hidden text-center py-8 max-w-3xl mx-auto bg-gradient-bg rounded-xl shadow-lg p-8 warm-shadow">
+                <!-- 背景オーバーレイ -->
+                <div id="overlay" class="hidden fixed inset-0 bg-black bg-opacity-50 z-40"></div>
+                
+                <div id="successMessage" class="hidden text-center py-8 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-3xl mx-auto bg-gradient-bg rounded-xl shadow-lg p-8 warm-shadow z-50" style="min-width: 300px;">
                     <div class="text-5xl mb-4">🌸</div>
                     <h3 class="text-xl font-semibold text-purple-600 mb-2">ありがとうございます</h3>
                     <p class="text-gray-600 mb-6">お問い合わせを受け付けました。あなたの気持ちに寄り添いながら、やさしくサポートさせていただきます。</p>
@@ -365,28 +369,25 @@
                         const formContainer = document.getElementById('formContainer');
                         const loadingSpinner = document.getElementById('loadingSpinner');
                         const successMessage = document.getElementById('successMessage');
+                        const overlay = document.getElementById('overlay');
                         
                         console.log('formContainer:', formContainer);
-                        console.log('formContainer parent:', formContainer ? formContainer.parentElement : null);
                         console.log('loadingSpinner:', loadingSpinner);
                         console.log('successMessage:', successMessage);
+                        console.log('overlay:', overlay);
                         
                         // フォーム要素の表示状態を確認
                         if (formContainer) {
                             console.log('formContainer display:', window.getComputedStyle(formContainer).display);
                             console.log('formContainer visibility:', window.getComputedStyle(formContainer).visibility);
                             console.log('formContainer classList:', formContainer.classList);
-                            
-                            // 親要素の表示状態も確認
-                            const parentContainer = formContainer.parentElement;
-                            if (parentContainer) {
-                                console.log('parentContainer display:', window.getComputedStyle(parentContainer).display);
-                                console.log('parentContainer visibility:', window.getComputedStyle(parentContainer).visibility);
-                            }
                         }
                         
-                        if (formContainer && loadingSpinner && successMessage) {
+                        if (formContainer && loadingSpinner && successMessage && overlay) {
                             console.log('要素を切り替えます');
+                            
+                            // オーバーレイ表示
+                            overlay.classList.remove('hidden');
                             
                             // フォームコンテナを非表示
                             formContainer.classList.add('hidden');
@@ -403,13 +404,6 @@
                             setTimeout(() => {
                                 loadingSpinner.classList.add('hidden');
                                 successMessage.classList.remove('hidden');
-                                
-                                // サクセスメッセージを親要素と同じ位置に表示
-                                if (parentContainer && parentContainer.parentElement) {
-                                    parentContainer.parentElement.appendChild(successMessage);
-                                    console.log('サクセスメッセージを親要素に移動しました');
-                                }
-                                
                                 console.log('テスト送信完了');
                             }, 2000);
                         } else {
@@ -428,7 +422,7 @@
                         // setTimeout(() => {
                         //     console.log('テスト関数を実行します');
                         //     testFormSubmission();
-                        // }, 1000);
+                        // }, 2000);
                         
                         console.log('フォーム要素:', form);
                         console.log('formContainer要素:', formContainer);
@@ -463,7 +457,12 @@
                                 return;
                             }
                             
-                            // ローディングスピナー表示
+                            // オーバーレイとローディングスピナー表示
+                            const overlay = document.getElementById('overlay');
+                            if (overlay) {
+                                overlay.classList.remove('hidden');
+                            }
+                            
                             if (formContainer) {
                                 formContainer.classList.add('hidden');
                                 // 親コンテナにスタイルを適用
@@ -509,11 +508,6 @@
                                     
                                     if (successMessage) {
                                         successMessage.classList.remove('hidden');
-                                        // サクセスメッセージを親要素と同じ位置に表示
-                                        const formParent = formContainer ? formContainer.parentElement : null;
-                                        if (formParent && formParent.parentElement) {
-                                            formParent.parentElement.appendChild(successMessage);
-                                        }
                                     }
                                 }, 1000); // 1秒後に表示切替（UX向上のため）
                             })
@@ -526,11 +520,6 @@
                                     
                                     if (successMessage) {
                                         successMessage.classList.remove('hidden');
-                                        // サクセスメッセージを親要素と同じ位置に表示
-                                        const formParent = formContainer ? formContainer.parentElement : null;
-                                        if (formParent && formParent.parentElement) {
-                                            formParent.parentElement.appendChild(successMessage);
-                                        }
                                     }
                                 }, 1000);
                                 console.error('送信エラー:', error);
@@ -543,6 +532,12 @@
                         const successMessage = document.getElementById('successMessage');
                         if (successMessage) {
                             successMessage.classList.add('hidden');
+                        }
+                        
+                        // オーバーレイを非表示
+                        const overlay = document.getElementById('overlay');
+                        if (overlay) {
+                            overlay.classList.add('hidden');
                         }
                         
                         // フォームコンテナを表示
