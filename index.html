@@ -265,7 +265,7 @@
                     あなたは一人じゃないよ。いつでも寄り添うね ❤
                 </p>
                 
-                <form id="contactForm" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSewiCb8d2NtCVr2hXUtOTZfH02lxDAkmaxrsl153D1RAiStWw/formResponse" method="POST" class="space-y-4">
+                <form id="contactForm" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSewiCb8d2NtCVr2hXUtOTZfH02lxDAkmaxrsl153D1RAiStWw/formResponse" method="POST" class="space-y-4" onsubmit="return handleFormSubmit(event);">
                     <div>
                         <label for="entry_1893840852" class="block text-sm font-medium text-gray-600">お名前 <span class="text-pink-500">*</span></label>
                         <input type="text" id="entry_1893840852" name="entry.1893840852" required class="mt-1 block w-full rounded-md border-gray-200 shadow-sm focus:border-purple-400 focus:ring focus:ring-purple-200 p-2 border">
@@ -363,199 +363,83 @@
                 <script>
                     let submitted = false;
                     
-                    // テスト用関数 - デバッグ目的
-                    function testFormSubmission() {
-                        console.log('テスト送信を開始します');
-                        const formContainer = document.getElementById('formContainer');
-                        const loadingSpinner = document.getElementById('loadingSpinner');
-                        const successMessage = document.getElementById('successMessage');
-                        const overlay = document.getElementById('overlay');
+                    // フォーム送信を処理する関数
+                    function handleFormSubmit(event) {
+                        event.preventDefault();
                         
-                        console.log('formContainer:', formContainer);
-                        console.log('loadingSpinner:', loadingSpinner);
-                        console.log('successMessage:', successMessage);
-                        console.log('overlay:', overlay);
+                        // 入力検証
+                        const nameField = document.getElementById('entry_1893840852');
+                        const mentalSliders = document.querySelectorAll('input[name="entry.1473167299"]');
                         
-                        // フォーム要素の表示状態を確認
-                        if (formContainer) {
-                            console.log('formContainer display:', window.getComputedStyle(formContainer).display);
-                            console.log('formContainer visibility:', window.getComputedStyle(formContainer).visibility);
-                            console.log('formContainer classList:', formContainer.classList);
+                        let isValid = true;
+                        let mentalSelected = false;
+                        
+                        if (!nameField.value.trim()) {
+                            isValid = false;
+                            alert('お名前を入力してください');
+                            return false;
                         }
                         
-                        if (formContainer && loadingSpinner && successMessage && overlay) {
-                            console.log('要素を切り替えます');
-                            
-                            // オーバーレイ表示
-                            overlay.classList.remove('hidden');
-                            
-                            // フォームコンテナを非表示
-                            formContainer.classList.add('hidden');
-                            const parentContainer = formContainer.parentElement;
-                            if (parentContainer) {
-                                parentContainer.style.display = 'none';
-                                console.log('親要素を非表示にしました');
+                        mentalSliders.forEach(slider => {
+                            if (slider.checked) {
+                                mentalSelected = true;
                             }
-                            
-                            // ローディングスピナー表示
-                            loadingSpinner.classList.remove('hidden');
-                            
-                            // タイマーで切り替え
-                            setTimeout(() => {
-                                loadingSpinner.classList.add('hidden');
-                                successMessage.classList.remove('hidden');
-                                console.log('テスト送信完了');
-                            }, 2000);
-                        } else {
-                            console.error('要素が見つかりません');
+                        });
+                        
+                        if (!mentalSelected) {
+                            isValid = false;
+                            alert('メンヘラ度合いを選択してください');
+                            return false;
                         }
+                        
+                        // オーバーレイとローディングスピナーを表示
+                        document.getElementById('overlay').classList.remove('hidden');
+                        document.getElementById('loadingSpinner').classList.remove('hidden');
+                        
+                        // フォームコンテナを非表示
+                        document.getElementById('formContainer').classList.add('hidden');
+                        
+                        // フォームデータを準備
+                        const formData = new FormData(document.getElementById('contactForm'));
+                        const urlParams = new URLSearchParams();
+                        
+                        for (const pair of formData.entries()) {
+                            urlParams.append(pair[0], pair[1]);
+                        }
+                        
+                        // Google Formsに送信
+                        fetch(document.getElementById('contactForm').action, {
+                            method: 'POST',
+                            mode: 'no-cors',
+                            headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded'
+                            },
+                            body: urlParams.toString()
+                        })
+                        .then(() => {
+                            // 2秒後にローディングをサクセスメッセージに切り替え
+                            setTimeout(() => {
+                                document.getElementById('loadingSpinner').classList.add('hidden');
+                                document.getElementById('successMessage').classList.remove('hidden');
+                            }, 2000);
+                        })
+                        .catch(() => {
+                            // エラーの場合も同様に表示（no-corsモードの制限のため）
+                            setTimeout(() => {
+                                document.getElementById('loadingSpinner').classList.add('hidden');
+                                document.getElementById('successMessage').classList.remove('hidden');
+                            }, 2000);
+                        });
+                        
+                        return false;
                     }
                     
-                    document.addEventListener('DOMContentLoaded', function() {
-                        console.log('DOM読み込み完了');
-                        const form = document.getElementById('contactForm');
-                        const formContainer = document.getElementById('formContainer');
-                        const loadingSpinner = document.getElementById('loadingSpinner');
-                        const successMessage = document.getElementById('successMessage');
-                        
-                        // テスト用：コメント解除でテスト実行
-                        // setTimeout(() => {
-                        //     console.log('テスト関数を実行します');
-                        //     testFormSubmission();
-                        // }, 2000);
-                        
-                        console.log('フォーム要素:', form);
-                        console.log('formContainer要素:', formContainer);
-                        console.log('loadingSpinner要素:', loadingSpinner);
-                        console.log('successMessage要素:', successMessage);
-                        
-                        form.addEventListener('submit', function(e) {
-                            e.preventDefault();
-                            
-                            // 入力検証
-                            const nameField = document.getElementById('entry_1893840852');
-                            const mentalSliders = document.querySelectorAll('input[name="entry.1473167299"]');
-                            
-                            let isValid = true;
-                            let mentalSelected = false;
-                            
-                            if (!nameField.value.trim()) {
-                                isValid = false;
-                            }
-                            
-                            mentalSliders.forEach(slider => {
-                                if (slider.checked) {
-                                    mentalSelected = true;
-                                }
-                            });
-                            
-                            if (!mentalSelected) {
-                                isValid = false;
-                            }
-                            
-                            if (!isValid) {
-                                return;
-                            }
-                            
-                            // オーバーレイとローディングスピナー表示
-                            const overlay = document.getElementById('overlay');
-                            if (overlay) {
-                                overlay.classList.remove('hidden');
-                            }
-                            
-                            if (formContainer) {
-                                formContainer.classList.add('hidden');
-                                // 親コンテナにスタイルを適用
-                                const parentContainer = formContainer.parentElement;
-                                if (parentContainer) {
-                                    parentContainer.style.display = 'none';
-                                }
-                            }
-                            loadingSpinner.classList.remove('hidden');
-                            
-                            // FormDataオブジェクト作成
-                            const formData = new FormData(form);
-                            
-                            // URLSearchParamsに変換
-                            const urlParams = new URLSearchParams();
-                            for (const pair of formData.entries()) {
-                                urlParams.append(pair[0], pair[1]);
-                            }
-                            
-                            // Google Formsに送信
-                            fetch(form.action, {
-                                method: 'POST',
-                                mode: 'no-cors', // Google Formsへの送信にはno-corsが必要
-                                headers: {
-                                    'Content-Type': 'application/x-www-form-urlencoded'
-                                },
-                                body: urlParams.toString()
-                            })
-                            .then(() => {
-                                // no-corsモードでは常にこのブロックが実行される
-                                console.log('送信処理が完了しました');
-                                return new Promise(resolve => {
-                                    // 1秒後に切り替え（UX向上のため）
-                                    setTimeout(resolve, 1000);
-                                });
-                            })
-                            .then(() => {
-                                // 送信成功時の処理
-                                setTimeout(() => {
-                                    if (loadingSpinner) {
-                                        loadingSpinner.classList.add('hidden');
-                                    }
-                                    
-                                    if (successMessage) {
-                                        successMessage.classList.remove('hidden');
-                                    }
-                                }, 1000); // 1秒後に表示切替（UX向上のため）
-                            })
-                            .catch(error => {
-                                // エラー時も成功と同じ処理をする（no-corsモードの制限のため）
-                                setTimeout(() => {
-                                    if (loadingSpinner) {
-                                        loadingSpinner.classList.add('hidden');
-                                    }
-                                    
-                                    if (successMessage) {
-                                        successMessage.classList.remove('hidden');
-                                    }
-                                }, 1000);
-                                console.error('送信エラー:', error);
-                            });
-                        });
-                    });
-                    
+                    // フォームをリセットする関数
                     function resetForm() {
-                        // サクセスメッセージを非表示
-                        const successMessage = document.getElementById('successMessage');
-                        if (successMessage) {
-                            successMessage.classList.add('hidden');
-                        }
-                        
-                        // オーバーレイを非表示
-                        const overlay = document.getElementById('overlay');
-                        if (overlay) {
-                            overlay.classList.add('hidden');
-                        }
-                        
-                        // フォームコンテナを表示
-                        const formContainer = document.getElementById('formContainer');
-                        if (formContainer) {
-                            formContainer.classList.remove('hidden');
-                            // 親要素も表示
-                            const parentContainer = formContainer.parentElement;
-                            if (parentContainer) {
-                                parentContainer.style.display = '';
-                            }
-                        }
-                        
-                        // フォームをリセット
-                        const contactForm = document.getElementById('contactForm');
-                        if (contactForm) {
-                            contactForm.reset();
-                        }
+                        document.getElementById('successMessage').classList.add('hidden');
+                        document.getElementById('overlay').classList.add('hidden');
+                        document.getElementById('formContainer').classList.remove('hidden');
+                        document.getElementById('contactForm').reset();
                     }
                 </script>
                 
